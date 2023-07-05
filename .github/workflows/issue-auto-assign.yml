@@ -16,7 +16,7 @@ jobs:
 
             let r = () => {
               let a = new Uint32Array(1);
-              self.crypto.getRandomValues(a);
+              crypto.getRandomValues(a);
               return a%2 == 0 ? -1: 1;
             }
             console.log(assignees.sort(r).slice(0, assigneeCount))
