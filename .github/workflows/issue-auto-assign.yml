@@ -1,0 +1,22 @@
+name: "Auto assign maintainer to issue"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  assign-user:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const assignees = ['mstoykov', 'imiric', 'codebien', 'olegbespalov', 'oleiade'];
+            const assigneeCount = 2;
+
+            let r = () => {
+              let a = new Uint32Array(1);
+              self.crypto.getRandomValues(a);
+              return a%2 == 0 ? -1: 1;
+            }
+            console.log(assignees.sort(r).slice(0, assigneeCount))
