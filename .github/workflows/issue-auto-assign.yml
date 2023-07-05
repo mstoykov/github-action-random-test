@@ -15,8 +15,17 @@ jobs:
             const assigneeCount = 2;
             const crypto = require("node:crypto");
 
-            const r = () => {
-              let a = crypto.randomBytes(1);
-              return a[0]%2 == 0 ? -1: 1;
+            const randomSign = () => {
+              return crypto.randomBytes(1)[0]? a[0]%2 == 0 ? -1: 1;
             }
-            console.log(assignees.sort(r).slice(0, assigneeCount))
+
+            const getNRandom = (n, array) {
+              let result = [];
+              while (n > 0) {
+                const chosen = array[crypto.randomInt(array.length)];
+                result.push(chosen)
+                array = array.filter(u => u != chosen);
+              }
+              return result;
+            }
+            console.log(getNRandom(assigneeCount, assignees))
