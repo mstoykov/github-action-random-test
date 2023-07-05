@@ -17,7 +17,7 @@ jobs:
 
             const getNRandom = (n, array) => {
               let result = new Array();
-              while (n > 0) {
+              for (;n > 0 && array.length > 0 ; n--) {
                 const chosen = array[crypto.randomInt(array.length)];
                 result.push(chosen);
                 array = array.filter(u => u != chosen);
