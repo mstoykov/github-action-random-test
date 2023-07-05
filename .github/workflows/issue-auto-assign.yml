@@ -13,9 +13,10 @@ jobs:
           script: |
             const assignees = ['mstoykov', 'imiric', 'codebien', 'olegbespalov', 'oleiade'];
             const assigneeCount = 2;
+            const crypto = require("node:crypto");
 
-            let r = () => {
-              let a = new Uint32Array(1);
+            const r = () => {
+              const a = new Uint32Array(1);
               crypto.getRandomValues(a);
               return a%2 == 0 ? -1: 1;
             }
