@@ -16,7 +16,7 @@ jobs:
             const crypto = require("node:crypto");
 
             const r = () => {
-              let a = crypto.getRandomBytes(1);
+              let a = crypto.randomBytes(1);
               return a[0]%2 == 0 ? -1: 1;
             }
             console.log(assignees.sort(r).slice(0, assigneeCount))
